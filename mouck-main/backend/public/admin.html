@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Add Quiz</title>
+    <link rel="stylesheet" href="styles/dashboard.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-mini">📚</div>
+                <h2>Quiz Master</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item">
+                    <span class="icon">🏠</span>
+                    Dashboard
+                </a>
+                <a href="admin.html" class="nav-item active">
+                    <span class="icon">🛠️</span>
+                    Create Quiz
+                </a>
+                <a href="#" class="nav-item" id="logoutBtn">
+                    <span class="icon">🚪</span>
+                    Logout
+                </a>
+            </nav>
+        </aside>
+        <main class="main-content admin-content">
+            <header class="dashboard-header">
+                <div class="header-left">
+                    <h1>Add New Quiz</h1>
+                    <p class="header-subtitle">Fill the form to publish a new quiz for learners.</p>
+                </div>
+            </header>
+            <button id="addQuestionBtn">+ Add Question</button>
+            <section class="admin-panel">
+                <form id="adminForm" class="admin-form">
+                    <div class="form-row">
+                        <label for="quizTitle">Quiz Title</label>
+                        <input type="text" id="quizTitle" placeholder="Enter quiz title" required>
+                    </div>
+                    <div class="form-row">
+                        <label for="quizDescription">Description</label>
+                        <textarea id="quizDescription" rows="3" placeholder="Enter quiz description"></textarea>
+                    </div>
+                    <div class="panel-header">
+                        <div>
+                            <h2>Questions</h2>
+                            <p>Use the question builder below to add your quiz questions.</p>
+                        </div>
+                        <button type="button" class="btn-secondary" id="addQuestionBtn">Add Question</button>
+                    </div>
+                    <div id="questionsContainer" class="questions-container"></div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">Create Quiz</button>
+                        <button type="button" class="btn-secondary" id="resetFormBtn">Reset</button>
+                    </div>
+                    <div id="adminMessage" class="admin-message"></div>
+                </form>
+            </section>
+        </main>
+    </div>
+    <script src="/js/api.js"></script>
+    <script src="/js/auth.js"></script>
+    <script src="/js/site.js"></script>
+    <script src="/js/admin.js"></script>
+</body>
+</html>
