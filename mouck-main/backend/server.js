@@ -80,6 +80,11 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, '../')));
 app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 
+// Serve index.html on root request (fixes "Cannot GET /")
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '../index.html'));
+});
+
 // JWT Authentication Middleware
 const verifyToken = (req, res, next) => {
     const token = req.headers.authorization?.split(' ')[1];
