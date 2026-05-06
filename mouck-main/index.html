@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Hub | Open Quizzes</title>
+    <link rel="stylesheet" href="styles/home.css">
+    <link rel="icon" href="data:,">
+</head>
+<body>
+    <div class="page-shell">
+        <header class="site-header">
+            <div class="brand-block">
+                <div class="brand-logo">📚</div>
+                <div>
+                    <h1 data-i18n="homeTitle">Open Quiz Playground</h1>
+                    <p data-i18n="homeSubtitle">Explore all quiz topics, switch theme, and choose language instantly.</p>
+                </div>
+            </div>
+            <div class="header-controls">
+                <div id="authControls">
+                    <!-- Will be populated by JavaScript based on login state -->
+                </div>
+                <button id="themeToggle" class="icon-btn" aria-label="Toggle theme">☀️</button>
+                <button id="langToggle" class="lang-btn">हिंदी</button>
+            </div>
+        </header>
+
+        <section class="hero-panel">
+            <div class="hero-copy">
+                <h2 data-i18n="exploreQuizzes">All quizzes for every visitor</h2>
+                <p data-i18n="heroText">No login needed to browse questions. Start a quiz anytime after signing in.</p>
+                <div class="hero-actions">
+                    <a href="login.html" class="btn-primary" data-i18n="startFree">Start Free</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="hero-card hero-card-1">HTML</div>
+                <div class="hero-card hero-card-2">CSS</div>
+                <div class="hero-card hero-card-3">JS</div>
+                <div class="hero-card hero-card-4">SQL</div>
+            </div>
+        </section>
+
+        <section class="quiz-list-section">
+            <div class="section-header">
+                <h2 data-i18n="availableQuizzes">Available Quizzes</h2>
+                <p data-i18n="quizBrowseText">Select any quiz to preview the questions and begin your test.</p>
+            </div>
+            <div id="quizzesGrid" class="quiz-grid">
+                <div class="loading">Loading quizzes...</div>
+            </div>
+        </section>
+
+        <section class="more-features">
+            <h2 data-i18n="featuresTitle">Features You Get</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🌓</div>
+                    <h3 data-i18n="darkLightMode">Dark / Light Mode</h3>
+                    <p data-i18n="darkLightText">Toggle display theme for comfortable learning.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌐</div>
+                    <h3 data-i18n="languageSwitch">Hindi / English</h3>
+                    <p data-i18n="languageText">Switch all page labels instantly between two languages.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⏱️</div>
+                    <h3 data-i18n="liveTimer">Live Timer</h3>
+                    <p data-i18n="timerText">Every question has a countdown with visual warning states.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔊</div>
+                    <h3 data-i18n="soundControl">Sound Control</h3>
+                    <p data-i18n="soundText">Enable or disable ticking sound while taking a quiz.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/site.js"></script>
+    <script src="js/home.js"></script>
+
+</body>
+</html>

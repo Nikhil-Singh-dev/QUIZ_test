@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz - Quiz Platform</title>
+    <link rel="stylesheet" href="styles/quiz.css">
+</head>
+<body>
+    <div class="quiz-container">
+        <div class="quiz-page-top">
+            <div>
+                <div class="quiz-brand">QuizHub</div>
+                <p class="page-subtitle" data-i18n="pageSubtitle">Enjoy a smart quiz interface with timer, language and sound control.</p>
+            </div>
+            <div class="top-actions">
+                <button id="themeToggle" class="icon-btn">☀️</button>
+                <button id="langToggle" class="lang-btn">हिंदी</button>
+            </div>
+        </div>
+
+        <!-- Quiz Header -->
+        <header class="quiz-header">
+            <div class="quiz-info">
+                <h2 id="quizTitle">Quiz Title</h2>
+                <div class="quiz-meta">
+                    <span class="question-counter"><span id="currentQuestion">1</span>/<span id="totalQuestions">20</span></span>
+                    <span class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </span>
+                </div>
+            </div>
+            <div class="quiz-timer">
+                <div class="timer-display" id="timerDisplay">
+                    <span id="minutes">01</span>:<span id="seconds">30</span>
+                </div>
+                <p class="timer-label" data-i18n="timeRemaining">Time Remaining</p>
+                <div class="sound-control">
+                    <button id="soundToggle" class="sound-btn">🔊</button>
+                    <span id="soundLabel" data-i18n="soundOn">Sound On</span>
+                </div>
+            </div>
+        </header>
+        
+        <!-- Quiz Content -->
+        <div class="quiz-content">
+            <!-- Question -->
+            <section class="question-section">
+                <h3 class="question-text" id="questionText">Question will appear here...</h3>
+            </section>
+            
+            <!-- Options -->
+            <section class="options-section">
+                <div id="optionsContainer" class="options-container">
+                    <div class="loading" data-i18n="loadingQuestion">Loading question...</div>
+                </div>
+            </section>
+            
+            <!-- Navigation Buttons -->
+            <div class="quiz-controls">
+                <button id="prevBtn" class="btn-secondary" disabled data-i18n="previous">← Previous</button>
+                <button id="submitBtn" class="btn-primary" data-i18n="submitQuiz">Submit Quiz</button>
+                <button id="nextBtn" class="btn-primary" data-i18n="next">Next →</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Confirmation Modal -->
+    <div id="confirmModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <h3 data-i18n="submitConfirmTitle">Submit Quiz?</h3>
+            <p data-i18n="submitConfirmMessage">Are you sure you want to submit your quiz?</p>
+            <div class="modal-buttons">
+                <button id="confirmSubmit" class="btn-primary" data-i18n="yesSubmit">Yes, Submit</button>
+                <button id="cancelSubmit" class="btn-secondary" data-i18n="noContinue">No, Keep Going</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/site.js"></script>
+    <script src="js/quiz.js"></script>
+
+</body>
+</html>

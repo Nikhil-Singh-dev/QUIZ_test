@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Quiz Platform</title>
+    <link rel="stylesheet" href="styles/dashboard.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-mini">📚</div>
+                <h2>Quiz Master</h2>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item active">
+                    <span class="icon">🏠</span>
+                    Dashboard
+                </a>
+                <div class="sidebar-search">
+                    <input type="text" id="userSearch" placeholder="🔍 Search users..." class="sidebar-search-input">
+                    <div id="searchResults" class="search-dropdown" style="display: none;"></div>
+                </div>
+                <a href="#" class="nav-item" id="profileBtn">
+                    <span class="icon">👤</span>
+                    My Profile
+                </a>
+                <a href="admin.html" class="nav-item" id="adminLink" style="display: none;">
+                    <span class="icon">🛠️</span>
+                    Create Quiz
+                </a>
+                <a href="#" class="nav-item" id="logoutBtn">
+                    <span class="icon">🚪</span>
+                    Logout
+                </a>
+            </nav>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="dashboard-header">
+                <div class="header-left">
+                    <h1>Welcome, <span id="userName">User</span>! 👋</h1>
+                    <p class="header-subtitle">Your Learning Progress</p>
+                </div>
+                <div class="header-right">
+                    <div class="user-info">
+                        <span id="userEmail">user@example.com</span>
+                        <button id="editProfileBtn" class="btn-primary">Edit Profile</button>
+                    </div>
+                </div>
+            </header>
+            
+            <!-- Stats Section -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">📝</div>
+                    <h3>Tests Taken</h3>
+                    <p class="stat-number" id="testsTaken">0</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">✅</div>
+                    <h3>Avg Score</h3>
+                    <p class="stat-number" id="avgScore">0%</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">⭐</div>
+                    <h3>Best Score</h3>
+                    <p class="stat-number" id="bestScore">0%</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🎯</div>
+                    <h3>Total Correct</h3>
+                    <p class="stat-number" id="totalCorrect">0</p>
+                </div>
+            </div>
+            
+            <!-- Quizzes Section -->
+            <section class="quizzes-section">
+                <h2>📚 Available Quizzes</h2>
+                <div class="quizzes-grid" id="quizzesContainer">
+                    <div class="loading">Loading quizzes...</div>
+                </div>
+            </section>
+            
+            <!-- Recent Results Section -->
+            <section class="results-section">
+                <h2>📊 Your Recent Results</h2>
+                <div class="results-table-container">
+                    <table class="results-table" id="resultsTable">
+                        <thead>
+                            <tr>
+                                <th>Quiz Name</th>
+                                <th>Score</th>
+                                <th>Correct Answers</th>
+                                <th>Date</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="resultsBody">
+                            <tr><td colspan="5" class="loading">Loading results...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+        
+        <!-- Edit Profile Modal -->
+        <div id="editProfileModal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <span class="close-modal" id="closeEditModal">&times;</span>
+                <h3>Edit Profile</h3>
+                <form id="editProfileForm">
+                    <div class="form-group">
+                        <label for="editName">Name</label>
+                        <input type="text" id="editName" placeholder="Name" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="editProfilePic">Profile Picture URL</label>
+                        <input type="url" id="editProfilePic" placeholder="Profile Picture URL" />
+                    </div>
+                    <div class="modal-actions">
+                        <button type="button" id="cancelEdit" class="btn-secondary">Cancel</button>
+                        <button type="submit" class="btn-primary">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/site.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
