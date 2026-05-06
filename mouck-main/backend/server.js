@@ -59,7 +59,23 @@ const Question = require('./models/Question');
 const Result = require('./models/Result');
 
 // Middleware
-app.use(cors());
+const FRONTEND_URL = process.env.FRONTEND_URL?.trim();
+const corsOptions = {
+  origin: function(origin, callback) {
+    if (!origin) return callback(null, true);
+    if (!FRONTEND_URL || FRONTEND_URL === '*') {
+      return callback(null, true);
+    }
+    const allowedOrigins = FRONTEND_URL.split(',').map(url => url.trim());
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    }
+    callback(new Error('Not allowed by CORS'));
+  },
+  credentials: true
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '../')));
 app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
