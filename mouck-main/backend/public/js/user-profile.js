@@ -173,8 +173,8 @@ function showEditProfileModal() {
                 const formData = new FormData();
                 formData.append('profilePic', profilePicFile);
 
-                const uploadBase = window.API_BASE_URL || 'http://localhost:5000/api';
-                const uploadResponse = await fetch(`${uploadBase}/upload/profile-picture`, {
+                // Use the same API_BASE from api.js (detects localhost vs production)
+                const uploadResponse = await fetch(`${API_BASE}/upload/profile-picture`, {
                     method: 'POST',
                     headers: {
                         'Authorization': `Bearer ${Auth.getToken()}`

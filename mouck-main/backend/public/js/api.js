@@ -1,8 +1,10 @@
 // ==================== API CONFIGURATION ====================
 
-const API_BASE = window.API_BASE_URL || 'http://localhost:5000/api';
-// For production, replace the default value with your Render backend URL or set window.API_BASE_URL in a config script.
-// Example: window.API_BASE_URL = 'https://your-backend.onrender.com/api';
+// Detect environment: localhost for dev, same domain for production
+const API_BASE = window.location.hostname === 'localhost' 
+  ? 'http://localhost:5000/api'
+  : '/api';
+
 // ==================== TOKEN STORAGE ====================
 function saveToken(token) {
     if (typeof token === "string" && token.length > 10) {
